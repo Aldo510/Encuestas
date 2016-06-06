@@ -1,0 +1,15 @@
+<h1>Bienvenido a Sinatra!</h1>
+<p>Este es un esqueleto de sinatra que armamos para ti</p>
+<form action="/login" method="post">
+  <label>Email:</label><br>
+  <input type="text" name="email"placeholder="Email"><br>
+  <label>Contraseña:</label><br>
+  <input type="password" name="pass" placeholder="contraseña"><br>
+  <input type="submit" value="Login">
+</form>
+<% if @message %>
+  <p><%= @message %></p>
+  <% session[:message] = nil %>
+<% end %>
+<a href="/new_user">Registrarse</a>
+  

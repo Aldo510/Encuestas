@@ -1,0 +1,33 @@
+.container {
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+}
+th {
+  text-align: left;
+}
+header{
+  background: black;
+  color: white;
+  height: 150px;
+  width: 100%;
+}
+.image{
+  height: 150px;
+  width: 150px;
+  float: left;
+}
+.derecha{
+  float:right;
+  margin-right: 10%;
+}
+header a{
+  margin: 50px;
+  padding: 10px;
+  float: right;
+  margin-right: -130px;
+  color: white;
+  border: 1px dashed white;
+  text-decoration: none;
+}
