@@ -1,3 +1,8 @@
 <% if logged_in? %>
   <h1>Estas son todas las encuestas</h1>
+  <a href="/update">Editar perfil</a>
+  <a href="/delete">Borrar cuenta</a>
+<% else %>
+  <h1>No estas logeado</h1>
+  <a href="/">Regresar</a>
 <% end %>

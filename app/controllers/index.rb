@@ -14,6 +14,17 @@ get '/logeado' do
   erb :logeado
 end
 
+get '/update' do
+  erb :update
+end
+
+get '/delete' do
+  user = User.find_by(user: current_user.user, email: current_user.email)
+  user.destroy
+  session.clear
+  erb :index
+end
+
 post '/login' do
   email = params[:email]
   pass = params[:pass]
@@ -25,7 +36,6 @@ post '/login' do
     session[:message] = "No estas registrado"
     redirect to '/'
   end
-  
 end
 
 post '/new_user' do
@@ -36,3 +46,11 @@ post '/new_user' do
   redirect to '/'
 end
 
+post '/update' do
+  name = params[:name]
+  email = params[:email]
+  pass = params[:pass]
+  user = User.find_by(user: current_user.user, email: current_user.email)
+  user.update(user: name, email: email, password: pass)
+  redirect to '/update'
+end

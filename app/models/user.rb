@@ -1,5 +1,8 @@
 include BCrypt
 class User < ActiveRecord::Base
+  validates :user, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
   # Remember to create a migration!
    def password
     @password ||= Password.new(password_digest)

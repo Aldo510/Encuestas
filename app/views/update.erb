@@ -1,0 +1,10 @@
+<h1>Actualiza tus datos</h1>
+<form action="/update" method="post">
+  <label>Nombre</label>
+  <input type="text" name="name" value="<%= current_user.user %>">
+  <label>Email</label>
+  <input type="text" name="email" value="<%= current_user.email %>">
+  <label>Nueva Contraseña</label>
+  <input type="password" name="pass">
+  <input type="submit" value="Actualizar">
+</form>
