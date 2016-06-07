@@ -1,8 +1,14 @@
 include BCrypt
 class User < ActiveRecord::Base
-  validates :user, presence: true
+  has_many :surveys
+  has_many :records
+  has_many :stats
+  has_many :answers, through: :stats
+  has_many :questions, through: :surveys
+  #Validations
+  validates :user, presence: true, length: { minimum: 4 }
   validates :email, presence: true
-  validates :password, presence: true
+  validates :password, presence: true, length: { minimum: 4 }
   # Remember to create a migration!
    def password
     @password ||= Password.new(password_digest)

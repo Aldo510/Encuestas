@@ -11,6 +11,7 @@ get '/new_user' do
 end
 
 get '/logeado' do
+  @surveys = Survey.where(user_id: current_user.id).order("id DESC")
   erb :logeado
 end
 

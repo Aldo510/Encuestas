@@ -1,0 +1,6 @@
+User.create(user: "Aldo", email: "aldo@correo.com", password: "1234")
+Survey.create(user_id: 1, title: "Encuesta", description: "Esta es una encuesta")
+Question.create(survey_id: 1, question: "Prueba")
+Answer.create(question_id: 1, answer: "Goku")
+Record.create(user_id: 1, survey_id: 1)
+Stat.create(user_id: 1, answer_id: 1)

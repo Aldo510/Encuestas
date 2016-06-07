@@ -1,6 +1,19 @@
 <% if logged_in? %>
-  <h1>Estas son todas las encuestas</h1>
+  <h1>Estas son todas tus encuestas</h1>
+  <p>Dale click a alguna para editarla</p>
+  <% if @surveys %>
+    <% @surveys.each do |survey| %>
+      <li><a href="/edit/survey/<%= survey.id%>"><%= survey.title %></a></li>
+    <% end %>
+  <% end %>
+  <br>
+  <hr>
+  <br>
+  <a href="/new_survey">Crear encuesta</a>
+  <hr>
   <a href="/update">Editar perfil</a>
+  <br>
+  <hr>
   <a href="/delete">Borrar cuenta</a>
 <% else %>
   <h1>No estas logeado</h1>

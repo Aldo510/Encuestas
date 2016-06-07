@@ -1,0 +1,14 @@
+<h1><%= @survey.title%></h1>
+<p>Formato para agregar preguntas a la encuesta</p>
+<form action="/new_question/question/<%= @survey.id %>" method="post">
+  <label>Titulo Pregunta</label>
+  <input type="text" name="question">
+  <br>
+  <label>Escribe las respuestas(Máximo 4)</label>
+  <br>
+  <% 4.times do |answer| %>
+  <label>Respuesta <%=answer + 1 %></label>
+    <input type="text" name="answer<%= answer + 1 %>"><br>
+  <% end %>
+  <input type="submit" value="Preguntar">
+</form>

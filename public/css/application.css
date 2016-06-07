@@ -29,5 +29,6 @@ header a{
   margin-right: -130px;
   color: white;
   border: 1px dashed white;
+  border-radius: 15px;
   text-decoration: none;
 }
