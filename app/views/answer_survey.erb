@@ -1,0 +1,18 @@
+<h1><%= @survey.title%></h1>
+<hr>
+<form action="/answer_survey/<%=@survey.id%>" method="post">
+  <%count = 1%>
+<% @questions.each do |question| %>
+  <h3><%= question.question%></h3>
+  
+  <% Question.find(question.id).answers.each_with_index do |answer, index| %>
+    <input type="radio" name="question<%=count%>" value="<%= answer.id %>"><%= answer.answer %>
+    <br>
+    
+  <% end %>
+  <% count +=1 %>
+<% end %>
+<hr>
+<input type="submit" value="Enviar">
+</form>
+<a href="/surveys">Regresar</a>

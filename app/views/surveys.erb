@@ -1,0 +1,7 @@
+<h1>Estas son todas las encuestas</h1>
+<p>Escoge una para contestarla</p>
+<% @surveys.each do |survey| %>
+  <a href="/answer_survey/<%=survey.id%>"><%=survey.title%></a>
+  <hr>
+<% end %> 
+<a href="/logeado">Regresar</a>

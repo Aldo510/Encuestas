@@ -13,4 +13,4 @@ post '/new_question/question/:id' do
   Answer.create(question_id: pregunta.id, answer: answer4)
   
   redirect to "/edit/survey/#{id_survey}"
-end
+ end

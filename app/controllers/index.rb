@@ -26,6 +26,11 @@ get '/delete' do
   erb :index
 end
 
+get '/surveys' do
+  @surveys = Survey.all
+  erb :surveys
+end
+
 post '/login' do
   email = params[:email]
   pass = params[:pass]

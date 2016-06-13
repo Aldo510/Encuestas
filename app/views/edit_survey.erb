@@ -1,4 +1,18 @@
 <h1><%= @survey.title%></h1>
+<% if @preguntas %>
+  <h3>Preguntas que has hecho</h3>
+  <% @preguntas.each do |pregunta| %>
+    <p>Pregunta: <%= pregunta.question %></p>
+    <% answers = Question.find(pregunta.id).answers %>
+    <p>Posibles respuestas: </p>
+    <%answers.each do |respuesta|%>
+        <li><%=respuesta.answer%><br>&nbsp&nbsp&nbspvotos: <%= respuesta.count %></li>
+    <% end %>
+    <hr>
+  <% end %>
+<% else %>
+<% end %>
+
 <p>Formato para agregar preguntas a la encuesta</p>
 <form action="/new_question/question/<%= @survey.id %>" method="post">
   <label>Titulo Pregunta</label>
@@ -12,3 +26,5 @@
   <% end %>
   <input type="submit" value="Preguntar">
 </form>
+<br>
+<a href="/logeado">Regresar</a>
