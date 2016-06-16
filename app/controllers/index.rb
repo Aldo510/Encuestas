@@ -6,19 +6,24 @@ get '/' do
   erb :index
 end
 
+#Metodo para ir a la vista de nuevo usuario
 get '/new_user' do
   erb :new_user
 end
 
+#Metodo pa
 get '/logeado' do
+  #Mostrar todas las encuestas de el usuario actual
   @surveys = Survey.where(user_id: current_user.id).order("id DESC")
   erb :logeado
 end
 
+#Metodo para redirigir a vista donde se pueden actualizar datos
 get '/update' do
   erb :update
 end
 
+#Vista para borrar la cuenta de el usuario 
 get '/delete' do
   user = User.find_by(user: current_user.user, email: current_user.email)
   user.destroy
@@ -26,11 +31,13 @@ get '/delete' do
   erb :index
 end
 
+#Get to show all the surveys
 get '/surveys' do
   @surveys = Survey.all
   erb :surveys
 end
 
+#Post to know if the user is register
 post '/login' do
   email = params[:email]
   pass = params[:pass]
@@ -38,12 +45,14 @@ post '/login' do
   if user
     session[:user_id] = user.id
     redirect to '/logeado'
+  #if the user isn't register will be appear a message
   else
     session[:message] = "No estas registrado"
     redirect to '/'
   end
 end
 
+#Post to crea a new user
 post '/new_user' do
   name = params[:name]
   email = params[:email]
@@ -52,6 +61,7 @@ post '/new_user' do
   redirect to '/'
 end
 
+#post to update an user with session started 
 post '/update' do
   name = params[:name]
   email = params[:email]

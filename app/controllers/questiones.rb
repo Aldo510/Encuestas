@@ -1,3 +1,4 @@
+#Post to create a new question with its own answers
 post '/new_question/question/:id' do
   id_survey = params[:id]
   question = params[:question]
